@@ -24,5 +24,12 @@ pipeline {
                 sh 'docker build -t flavorcompass-backend .'
             }
         }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+                sh 'docker run -d --name flavorcompass-backend -p 8081:8081 flavorcompass-backend:latest'
+            }
+        }
     }
 }
