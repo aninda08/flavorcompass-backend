@@ -20,6 +20,7 @@ pipeline {
         stage('Containerize') {
             steps {
                 echo 'Building Docker image...'
+                sh 'docker --version'
                 sh 'docker build -t flavorcompass-backend .'
             }
         }
