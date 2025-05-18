@@ -14,7 +14,7 @@
 # ENTRYPOINT ["java", "-jar", "app.jar"]
 
 FROM openjdk:21-jdk-slim
-VOLUME /tmp
+# VOLUME /tmp
 EXPOSE 8081
-COPY build/libs/mealrecommendation-0.0.1-SNAPSHOT.jar app.jar
+ADD build/libs/mealrecommendation-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
