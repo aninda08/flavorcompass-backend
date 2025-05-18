@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    environment {
-        JAVA_HOME = tool name: 'jdk21', type: 'jdk'
-    }
+    // environment {
+    //     JAVA_HOME = tool name: 'jdk21', type: 'jdk'
+    // }
 
     stages {
         stage('Checkout') {
