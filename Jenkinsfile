@@ -16,5 +16,12 @@ pipeline {
                 sh './gradlew test'
             }
         }
+
+        stage('Containerize') {
+            steps {
+                echo 'Building Docker image...'
+                sh 'docker build -t flavorcompass-backend .'
+            }
+        }
     }
 }
