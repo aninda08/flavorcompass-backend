@@ -1,19 +1,10 @@
 pipeline {
     agent any
 
-    // environment {
-    //     JAVA_HOME = tool name: 'jdk21', type: 'jdk'
-    // }
-
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/aninda08/flavorcompass-backend']])
-            }
-        }
-
         stage('Build') {
             steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/aninda08/flavorcompass-backend']])
                 echo 'Building the Spring Boot application...'
                 sh './gradlew clean build'
             }
@@ -27,12 +18,12 @@ pipeline {
         // }
     }
 
-    // post {
-    //     success {
-    //         echo 'Pipeline completed successfully!'
-    //     }
-    //     failure {
-    //         echo 'Pipeline failed!'
-    //     }
-    // }
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
 }
