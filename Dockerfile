@@ -1,5 +1,5 @@
 
-FROM openjdk:21-alpine
+FROM openjdk:21
 # WORKDIR /app
 # COPY --from=build /app/build/libs/app.jar /app/app.jar
 
