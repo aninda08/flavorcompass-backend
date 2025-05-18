@@ -8,31 +8,31 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/aninda08/flavorcompass-backend.git'
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/aninda08/flavorcompass-backend']])
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building the Spring Boot application...'
-                sh './gradlew build -x test'
+                sh './gradlew clean build'
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                sh './gradlew test'
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         echo 'Running tests...'
+        //         sh './gradlew test'
+        //     }
+        // }
     }
 
-    post {
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed!'
-        }
-    }
+    // post {
+    //     success {
+    //         echo 'Pipeline completed successfully!'
+    //     }
+    //     failure {
+    //         echo 'Pipeline failed!'
+    //     }
+    // }
 }
