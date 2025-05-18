@@ -13,7 +13,7 @@
 # Run the application
 # ENTRYPOINT ["java", "-jar", "app.jar"]
 
-FROM openjdk:21-jdk-slim
+FROM openjdk:21
 # VOLUME /tmp
 EXPOSE 8081
 ADD build/libs/mealrecommendation-0.0.1-SNAPSHOT.jar app.jar
